@@ -1,5 +1,7 @@
 Titlu: Călătorie Interactivă prin Galaxie
+
 Scop: O experiență web ușoară, unde utilizatorul “călătorește” de la Pământ spre centrul galaxiei, trecând prin diferite zone cosmice.
+
 Pagini:
 
 🌍 Pământul și Sistemul Solar
