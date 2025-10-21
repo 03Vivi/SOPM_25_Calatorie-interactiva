@@ -9,5 +9,7 @@ Pagini:
 🌟 Centrul Galaxiei
 
 Ursu Andreea Georgiana - partea de html
+
 Flueraru Roxana Alexandra - partea de css
+
 Cursaru Violeta Gabriela - partea de javascript
