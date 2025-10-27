@@ -7,11 +7,12 @@
 
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    background-color: #0a0a1f; /* Albastru foarte închis */
+    background-color: #0a0a1f; 
     color: #f0f0f0; 
     line-height: 1.7;
     background-image: url('https://www.transparenttextures.com/patterns/stardust.png');
-    overflow-x: hidden; /* Previne scroll-ul orizontal */
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 /* Container principal */
@@ -19,13 +20,13 @@ body {
     max-width: 960px;
     margin: 20px auto;
     padding: 25px;
-    background-color: rgba(10, 20, 40, 0.8); 
+    background-color: rgba(10, 20, 40, 0.8);
     border-radius: 10px;
     border: 1px solid #303a52;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
 }
 
-/* Textul introductiv de sub titlu */
+/* Textul introductiv */
 .intro-text {
     text-align: center;
     font-size: 1.1rem;
@@ -86,7 +87,7 @@ h2 {
     padding-bottom: 5px;
 }
 
-/* Conținut tip "Card" */
+/* Carduri */
 .card {
     background-color: rgba(5, 10, 30, 0.7);
     padding: 20px;
@@ -94,15 +95,12 @@ h2 {
     border-radius: 8px;
     border: 1px solid #2a3a5a;
     box-shadow: 0 2px 8px rgba(0,0,0,0.5);
-    
     animation: float 6s ease-in-out infinite;
-
     opacity: 0;
     transform: translateY(30px);
     transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
-/* Starea vizibilă pentru JS */
 .card.visible {
     opacity: 1;
     transform: translateY(0);
@@ -115,7 +113,6 @@ h2 {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Stil pentru imagini în carduri */
 .card img {
     max-width: 100%;
     height: auto;
@@ -124,15 +121,14 @@ h2 {
     border: 1px solid #303a52;
 }
 
-/* --- Stil NOU pentru imaginea animată de pe prima pagină --- */
+/* Imagine animată */
 #animated-image {
-    width: 100%; /* Se asigură că imaginea umple lățimea cardului */
-    animation: image-float 8s ease-in-out infinite alternate; /* Aplica animația */
-    box-shadow: 0 0 15px rgba(97, 218, 251, 0.3); /* Un mic glow subtil */
+    width: 100%;
+    animation: image-float 8s ease-in-out infinite alternate;
+    box-shadow: 0 0 15px rgba(97, 218, 251, 0.3);
 }
 
-
-/* Stil pentru listele noi de date */
+/* Liste */
 .card ul {
     list-style-type: none;
     margin-left: 5px;
@@ -152,7 +148,6 @@ h2 {
     top: 0;
     color: #61dafb;
     font-size: 1.2rem;
-    line-height: 1;
 }
 
 /* Footer */
@@ -164,7 +159,7 @@ footer {
     border-top: 1px solid #303a52;
 }
 
-/* KEYFRAMES PENTRU ANIMAȚII */
+/* Animații existente */
 @keyframes float {
     0% { transform: translateY(0px); }
     50% { transform: translateY(-10px); }
@@ -180,50 +175,43 @@ footer {
     }
 }
 
-/* --- KEYFRAMES NOU PENTRU ANIMAȚIA IMAGINII --- */
 @keyframes image-float {
     0% { transform: translateY(0) scale(1); }
-    50% { transform: translateY(-5px) scale(1.01); } /* Mică mișcare în sus și mărire */
+    50% { transform: translateY(-5px) scale(1.01); }
     100% { transform: translateY(0) scale(1); }
 }
 
-/* --- Fundal special pentru pagina Nebuloasa Orion --- */
+/* Fundaluri speciale */
 .orion-bg {
     background-image: url('orion.jpg');
     background-size: cover;
     background-position: center;
-    background-attachment: fixed; /* efect paralax ușor */
+    background-attachment: fixed;
     background-repeat: no-repeat;
 }
 
-/* Menținem lizibilitatea conținutului */
 .orion-bg .container {
     background-color: rgba(5, 10, 30, 0.8);
     backdrop-filter: blur(2px);
 }
 
-/* --- Fundal special pentru pagina Centrul Galaxiei --- */
 .galaxy-bg {
     background-image: url('galaxie.jpg');
     background-size: cover;
     background-position: center;
-    background-attachment: fixed; /* efect paralax ușor */
+    background-attachment: fixed;
     background-repeat: no-repeat;
 }
 
-/* Menținem lizibilitatea conținutului */
 .galaxy-bg .container {
     background-color: rgba(5, 10, 30, 0.8);
     backdrop-filter: blur(2px);
 }
 
-
-/* --- Imaginea găurii negre din pagina Centrul Galaxiei --- */
 .blackhole-img {
     display: block;
     margin: 20px auto;
     max-width: 300px;
-    height: auto;
     border-radius: 8px;
     border: 1px solid #303a52;
     box-shadow: 0 0 20px rgba(97, 218, 251, 0.4);
@@ -237,16 +225,7 @@ footer {
     box-shadow: 0 0 40px rgba(97, 218, 251, 0.8);
 }
 
-/* --- Fundal pentru pagina de contact --- */
-.contact-bg {
-    background-image: url('images/galaxie.jpg');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-}
-
-/* --- Stil pentru secțiunea de echipă --- */
+/* Echipa */
 .team-row {
     display: flex;
     justify-content: space-around;
@@ -298,7 +277,7 @@ footer {
     transform: scale(1.1);
 }
 
-/* --- Secțiune Planetariul Brașov --- */
+/* Planetariul Brașov */
 .planetarium-section {
     margin-top: 60px;
     display: flex;
@@ -324,20 +303,31 @@ footer {
     text-shadow: 0 0 10px rgba(97, 218, 251, 0.8);
 }
 
-.planetarium-text p {
-    font-size: 1.1em;
-    line-height: 1.6;
-}
-
 .planetarium-map iframe {
     box-shadow: 0 0 20px rgba(97, 218, 251, 0.5);
     transition: transform 0.6s ease;
 }
 
 .planetarium-map iframe:hover {
-    transform: scale(1.05);
+    transform: scale(1.05);
 }
-@keyframes spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+
+/* === NOU ÎN VERSIUNEA 1.1.0 — "Mișcare și frame-uri" === */
+
+/* Fundal stele care licăresc */
+.stars {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(white, rgba(255,255,255,0)) 1px 1px,
+                radial-gradient(white, rgba(255,255,255,0)) 2px 2px;
+    background-size: 3px 3px;
+    animation: twinkle 6s infinite alternate;
+    z-index: 0;
 }
+
+/* Gaură neagră decorativă animată */
+.blackhole {
+    margin: 40px auto;
+
