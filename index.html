@@ -1,26 +1,48 @@
 <!DOCTYPE html>
 <html lang="ro">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Călătorie prin Galaxie - Sistemul Solar</title>
-  <link rel="stylesheet" href="style.css">
-  <script defer src="script.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Călătorie Interactivă prin Galaxie</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
-  <div class="stars"></div>
-  <div class="content">
-    <h1>🌍 Sistemul Solar</h1>
-    <p>Bine ai venit la începutul călătoriei tale stelare. Pornim din locul nostru natal, Sistemul Solar, un mic punct într-o vastă galaxie.</p>
-    
-    <div class="planets">
-      <span>☀️ Soarele</span>
-      <span>🪐 Saturn</span>
-      <span>🌎 Pământul</span>
-      <span>🔴 Marte</span>
-    </div>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html" class="active">Acasă</a></li>
+                <li><a href="orion.html">Nebuloasa Orion</a></li>
+                <li><a href="centru.html">Centrul Galaxiei</a></li>
+                 <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <a href="orion.html" class="button">Continuă călătoria →</a>
-  </div>
+    <main class="container">
+        <h1>Călătorie Interactivă prin Galaxie</h1>
+        <p class="intro-text">Bun venit, exploratorule stelar! Ești pe punctul de a porni într-o călătorie digitală către cele mai uimitoare colțuri ale galaxiei noastre, Calea Lactee.</p>
+        
+        <div class="card">
+            <img id="animated-image" src="giphy.gif">
+            <h2 id="welcome-message">Pregătește-te pentru lansare!</h2>
+            <p>Selectează o destinație din meniul de navigație de mai sus pentru a-ți începe aventura. Apasă pe acest mesaj pentru a activa sistemele!</p>
+        </div>
+
+        <div class="card">
+            <img src="solar-system.png" >
+            <h2>Despre Călătoria Ta</h2>
+            <p>Acest simulator îți permite să vizitezi două dintre cele mai fascinante locații din Calea Lactee. Vom folosi date astronomice reale pentru a-ți oferi o perspectivă unică asupra minunilor care ne înconjoară.</p>
+            <ul>
+                <li>*Tehnologie:* Navă de clasă "Explorator" cu motor Alcubierre.</li>
+                <li>*Durata Călătoriei (Simulată):* Instantanee.</li>
+                <li>*Misiune:* Observare și colectare de date.</li>
+            </ul>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy;  Explorări Galactice cu Vivi, Andreea si Roxana.   </p>
+    </footer>
 </body>
 </html>
