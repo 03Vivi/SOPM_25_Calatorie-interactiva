@@ -1,90 +1,342 @@
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+/* Resetare de bază și setări globale */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 body {
-  margin: 0;
-  overflow: hidden;
-  background: black;
-  color: white;
-  font-family: 'Orbitron', sans-serif;
-  height: 100vh;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: #0a0a1f; /* Albastru foarte închis */
+    color: #f0f0f0; 
+    line-height: 1.7;
+    background-image: url('https://www.transparenttextures.com/patterns/stardust.png');
+    overflow-x: hidden; /* Previne scroll-ul orizontal */
 }
 
-.stars {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(white, rgba(255,255,255,0)) 1px 1px,
-              radial-gradient(white, rgba(255,255,255,0)) 2px 2px;
-  background-size: 3px 3px;
-  animation: twinkle 6s infinite alternate;
-  z-index: 0;
+/* Container principal */
+.container {
+    max-width: 960px;
+    margin: 20px auto;
+    padding: 25px;
+    background-color: rgba(10, 20, 40, 0.8); 
+    border-radius: 10px;
+    border: 1px solid #303a52;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
 }
 
-@keyframes twinkle {
-  from { opacity: 0.6; }
-  to { opacity: 1; }
+/* Textul introductiv de sub titlu */
+.intro-text {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #c0c0e0;
+    margin-bottom: 20px;
 }
 
-.content {
-  position: relative;
-  z-index: 1;
-  text-align: center;
-  top: 50%;
-  transform: translateY(-50%);
-  padding: 0 20px;
+/* Navigație */
+nav {
+    background-color: #1a2b4a;
+    padding: 1rem 0;
+    border-bottom: 2px solid #61dafb;
 }
 
+nav ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+}
+
+nav li {
+    margin: 0 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #e0e0e0;
+    font-weight: bold;
+    font-size: 1.1rem;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+nav a:hover {
+    background-color: #61dafb;
+    color: #0a0a1f;
+}
+
+nav a.active {
+    color: #61dafb;
+    border-bottom: 2px solid #61dafb;
+}
+
+/* Titluri */
 h1 {
-  font-size: 2.5em;
-  color: #00ffff;
-  margin-bottom: 20px;
+    text-align: center;
+    font-size: 2.5rem;
+    color: #61dafb;
+    margin-bottom: 20px;
+    animation: pulse-glow 2.5s infinite alternate;
 }
 
-p {
-  font-size: 1.1em;
-  max-width: 700px;
-  margin: 0 auto 30px;
+h2 {
+    color: #82e0ff;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #303a52;
+    padding-bottom: 5px;
 }
 
-.button {
-  display: inline-block;
-  background: #00ffff;
-  color: black;
-  padding: 10px 25px;
-  border-radius: 20px;
-  text-decoration: none;
-  font-weight: bold;
-  transition: 0.3s;
+/* Conținut tip "Card" */
+.card {
+    background-color: rgba(5, 10, 30, 0.7);
+    padding: 20px;
+    margin-top: 25px;
+    border-radius: 8px;
+    border: 1px solid #2a3a5a;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+    
+    animation: float 6s ease-in-out infinite;
+
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
-.button:hover {
-  background: white;
-  color: black;
+/* Starea vizibilă pentru JS */
+.card.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
-.planets span {
-  display: inline-block;
-  margin: 0 10px;
-  font-size: 1.5em;
-  animation: float 4s ease-in-out infinite;
+.card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 20px rgba(97, 218, 251, 0.5);
+    animation-play-state: paused;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* Stil pentru imagini în carduri */
+.card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #303a52;
+}
+
+/* --- Stil NOU pentru imaginea animată de pe prima pagină --- */
+#animated-image {
+    width: 100%; /* Se asigură că imaginea umple lățimea cardului */
+    animation: image-float 8s ease-in-out infinite alternate; /* Aplica animația */
+    box-shadow: 0 0 15px rgba(97, 218, 251, 0.3); /* Un mic glow subtil */
+}
+
+
+/* Stil pentru listele noi de date */
+.card ul {
+    list-style-type: none;
+    margin-left: 5px;
+    margin-top: 15px;
+}
+
+.card li {
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 10px;
+}
+
+.card li::before {
+    content: '✦';
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #61dafb;
+    font-size: 1.2rem;
+    line-height: 1;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    margin-top: 30px;
+    padding: 20px;
+    color: #88a;
+    border-top: 1px solid #303a52;
+}
+
+/* KEYFRAMES PENTRU ANIMAȚII */
 @keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
 }
 
-.blackhole {
-  margin: 30px auto;
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(0,0,0,0) 30%, #000 70%);
-  box-shadow: 0 0 30px 10px #ff00ff;
-  animation: spin 6s linear infinite;
+@keyframes pulse-glow {
+    from {
+        text-shadow: 0 0 10px #61dafb, 0 0 20px #61dafb;
+    }
+    to {
+        text-shadow: 0 0 20px #61dafb, 0 0 40px #61dafb;
+    }
 }
 
+/* --- KEYFRAMES NOU PENTRU ANIMAȚIA IMAGINII --- */
+@keyframes image-float {
+    0% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-5px) scale(1.01); } /* Mică mișcare în sus și mărire */
+    100% { transform: translateY(0) scale(1); }
+}
+
+/* --- Fundal special pentru pagina Nebuloasa Orion --- */
+.orion-bg {
+    background-image: url('orion.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* efect paralax ușor */
+    background-repeat: no-repeat;
+}
+
+/* Menținem lizibilitatea conținutului */
+.orion-bg .container {
+    background-color: rgba(5, 10, 30, 0.8);
+    backdrop-filter: blur(2px);
+}
+
+/* --- Fundal special pentru pagina Centrul Galaxiei --- */
+.galaxy-bg {
+    background-image: url('galaxie.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* efect paralax ușor */
+    background-repeat: no-repeat;
+}
+
+/* Menținem lizibilitatea conținutului */
+.galaxy-bg .container {
+    background-color: rgba(5, 10, 30, 0.8);
+    backdrop-filter: blur(2px);
+}
+
+
+/* --- Imaginea găurii negre din pagina Centrul Galaxiei --- */
+.blackhole-img {
+    display: block;
+    margin: 20px auto;
+    max-width: 300px;
+    height: auto;
+    border-radius: 8px;
+    border: 1px solid #303a52;
+    box-shadow: 0 0 20px rgba(97, 218, 251, 0.4);
+    animation: image-float 8s ease-in-out infinite alternate;
+    transition: transform 2s ease, box-shadow 0.8s ease;
+    cursor: pointer;
+}
+
+.blackhole-img:hover {
+    transform: scale(1.15) rotate(2deg);
+    box-shadow: 0 0 40px rgba(97, 218, 251, 0.8);
+}
+
+/* --- Fundal pentru pagina de contact --- */
+.contact-bg {
+    background-image: url('images/galaxie.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+/* --- Stil pentru secțiunea de echipă --- */
+.team-row {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 30px;
+    gap: 20px;
+}
+
+.team-card {
+    background-color: rgba(5, 10, 30, 0.8);
+    border: 1px solid #2a3a5a;
+    border-radius: 10px;
+    padding: 15px;
+    width: 250px;
+    text-align: center;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.team-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px rgba(97, 218, 251, 0.5);
+}
+
+.team-card img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #303a52;
+}
+
+.team-card h3 {
+    color: #82e0ff;
+    margin-bottom: 10px;
+}
+
+.insta-link {
+    display: inline-block;
+    padding: 8px 15px;
+    color: #0a0a1f;
+    background-color: #61dafb;
+    border-radius: 5px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.insta-link:hover {
+    background-color: #50b9e8;
+    transform: scale(1.1);
+}
+
+/* --- Secțiune Planetariul Brașov --- */
+.planetarium-section {
+    margin-top: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 40px;
+    background-color: rgba(10, 15, 40, 0.7);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 30px rgba(97, 218, 251, 0.4);
+}
+
+.planetarium-text {
+    max-width: 400px;
+    color: #dfefff;
+    text-align: left;
+}
+
+.planetarium-text h2 {
+    color: #61dafb;
+    margin-bottom: 15px;
+    text-shadow: 0 0 10px rgba(97, 218, 251, 0.8);
+}
+
+.planetarium-text p {
+    font-size: 1.1em;
+    line-height: 1.6;
+}
+
+.planetarium-map iframe {
+    box-shadow: 0 0 20px rgba(97, 218, 251, 0.5);
+    transition: transform 0.6s ease;
+}
+
+.planetarium-map iframe:hover {
+    transform: scale(1.05);
+}
 @keyframes spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
